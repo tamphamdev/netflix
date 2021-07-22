@@ -25,7 +25,13 @@ export const Inner = styled.div`
     flex-direction: column;
   }
 `
-export const Container = styled.div``
+export const Container = styled.div`
+   @media (max-width: 100px) {
+     ${Item}:last-of-type h3 {
+       margin-bottom: 50px;
+     }
+   }
+`
 
 export const Pane = styled.div`
   width: 50%;
