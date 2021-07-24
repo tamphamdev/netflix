@@ -10,7 +10,7 @@ import {
 } from "./styles/jumbotron";
 
 type Props = {
-  direction: string;
+  direction?: string;
   children: React.ReactNode;
 };
 export default function Jumbotron({
@@ -47,6 +47,6 @@ Jumbotron.SubTitle = function JumbotronSubTitle({
   return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
-Jumbotron.Image = function JumbotronImage({ ...restProps }: Props) {
+Jumbotron.Image = function JumbotronImage({ ...restProps }) {
   return <Image {...restProps} />;
 };
