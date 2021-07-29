@@ -11,7 +11,18 @@ import {
 type Props = {
   children: React.ReactNode
 }
-const ToggleContext = createContext()
+
+type ContextType = {
+  toggleShow: boolean
+  setToggleShow: () => void
+}
+
+const contextDefaultValues: ContextType = {
+  toggleShow: false,
+  setToggleShow: () => {},
+}
+
+const ToggleContext = createContext<ContextType>(contextDefaultValues)
 export default function Accordion({ children, ...restProps }: Props) {
   return (
     <Container {...restProps}>
@@ -47,11 +58,16 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }: Props) {
       {...restProps}
     >
       {children}
+      {toggleShow ? (
+        <img src="/images/icons/close-slim.png" alt="Close" />
+      ) : (
+        <img src="/images/icons/add.png" alt="Open" />
+      )}
     </Header>
   )
 }
 
-Accordion.Body = function AccordtionBody({ children, ...restProps }: Props) {
+Accordion.Body = function AccordionBody({ children, ...restProps }: Props) {
   const { toggleShow } = useContext(ToggleContext)
 
   return toggleShow ? <Body {...restProps}>{children}</Body> : null
