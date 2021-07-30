@@ -1,4 +1,10 @@
-import React, { useState, useContext, createContext } from "react"
+import React, {
+  useState,
+  useContext,
+  createContext,
+  Dispatch,
+  SetStateAction,
+} from "react"
 import {
   Container,
   Frame,
@@ -14,15 +20,15 @@ type Props = {
 
 type ContextType = {
   toggleShow: boolean
-  setToggleShow: () => void
+  setToggleShow: (value: boolean) => void
 }
 
 const contextDefaultValues: ContextType = {
   toggleShow: false,
-  setToggleShow: () => {},
+  setToggleShow: (): void => {},
 }
 
-const ToggleContext = createContext<ContextType>(contextDefaultValues)
+const ToggleContext = createContext(contextDefaultValues)
 export default function Accordion({ children, ...restProps }: Props) {
   return (
     <Container {...restProps}>
@@ -40,17 +46,17 @@ Accordion.Frame = function AccordionFrame({ children, ...restProps }: Props) {
 }
 
 Accordion.Item = function AccordionItem({ children, ...restProps }: Props) {
-  const [togglerShow, setToggleShow] = useState(false)
+  const [toggleShow, setToggleShow] = useState(false)
 
   return (
-    <ToggleContext.Provider value={{ togglerShow, setToggleShow }}>
+    <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
       <Item {...restProps}>{children}</Item>
     </ToggleContext.Provider>
   )
 }
 
 Accordion.Header = function AccordionHeader({ children, ...restProps }: Props) {
-  const [toggleShow, setToggleShow] = useState(ToggleContext)
+  const { toggleShow, setToggleShow } = useContext(ToggleContext)
 
   return (
     <Header
@@ -58,6 +64,7 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }: Props) {
       {...restProps}
     >
       {children}
+      <pre>{JSON.stringify(toggleShow, null, 2)}</pre>
       {toggleShow ? (
         <img src="/images/icons/close-slim.png" alt="Close" />
       ) : (
