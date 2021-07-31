@@ -1,13 +1,6 @@
-import React, {
-  useState,
-  useContext,
-  createContext,
-  Dispatch,
-  SetStateAction,
-} from "react"
+import React, { useState, useContext, createContext } from "react"
 import {
   Container,
-  Frame,
   Title,
   Item,
   Inner,
@@ -41,10 +34,6 @@ Accordion.Title = function AccordionTitle({ children, ...restProps }: Props) {
   return <Title {...restProps}>{children}</Title>
 }
 
-Accordion.Frame = function AccordionFrame({ children, ...restProps }: Props) {
-  return <Frame {...restProps}>{children}</Frame>
-}
-
 Accordion.Item = function AccordionItem({ children, ...restProps }: Props) {
   const [toggleShow, setToggleShow] = useState(false)
 
@@ -64,7 +53,6 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }: Props) {
       {...restProps}
     >
       {children}
-      <pre>{JSON.stringify(toggleShow, null, 2)}</pre>
       {toggleShow ? (
         <img src="/images/icons/close-slim.png" alt="Close" />
       ) : (
