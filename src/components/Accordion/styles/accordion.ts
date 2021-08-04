@@ -1,5 +1,8 @@
 import styled from "styled-components/macro"
 
+type Props = {
+  show: boolean
+}
 export const Container = styled.div`
   display: flex;
   border-bottom: 8px solid #222;
@@ -14,6 +17,10 @@ export const Inner = styled.div`
 
 export const Item = styled.div`
   color: #fff;
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 10px;
   max-width: 670px;
   &:first-of-type {
@@ -57,15 +64,16 @@ export const Header = styled.div`
 `
 
 export const Body = styled.div`
-  max-height: 1200px;
   transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  overflow: hidden;
   font-size: 26px;
+  padding: 0.8em 2.2em 0.8em 1.2em;
   font-weight: normal;
   line-height: normal;
   background: #303030;
-  padding: 0.8em 2.2em 0.8em 1.2em;
   white-space: pre-wrap;
   user-select: none;
+  max-height: 1200px;
 
   @media (max-width: 600px) {
     font-size: 16px;
