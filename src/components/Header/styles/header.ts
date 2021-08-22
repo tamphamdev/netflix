@@ -40,7 +40,7 @@ export const Logo = styled.img`
 export const ButtonLink = styled(ReactRouterLink)`
   display: block;
   background-color: #e50914;
-  width: 84px;
+  width: 94px;
   height: fit-content;
   color: #fff;
   border: 0;

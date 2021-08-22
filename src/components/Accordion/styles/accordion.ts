@@ -22,7 +22,7 @@ export const Item = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  max-width: 670px;
+  max-width: 700px;
   &:first-of-type {
     margin-top: 3em;
   }
