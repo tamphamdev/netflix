@@ -12,7 +12,7 @@ import {
 } from "./styles/form"
 
 type Props = {
-  children: React.ReactNode
+  children?: React.ReactNode
   [x: string]: any
 }
 export default function Form({ children, ...restProps }) {
