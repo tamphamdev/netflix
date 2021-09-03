@@ -20,8 +20,24 @@ export default function Signup() {
 
   const isInvalid = firstName === "" || password === "" || emailAddress === ""
 
-  const hanldeSignup = (e: ButtonEvent) => {
+  const hanldeSignup = async (e: ButtonEvent) => {
     e.preventDefault()
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then(({ user }) => {
+        user.updateProfile({
+          displayName: firstName,
+          photoURL: Math.floor(Math.random() * 5) + 1,
+        })
+      })
+      .then(() => history.push(ROUTES.BROWSE))
+      .catch((error) => {
+        setError(error.message)
+        setFirstName("")
+        setPassword("")
+        setEmailAddress("")
+      })
   }
   return (
     <>
