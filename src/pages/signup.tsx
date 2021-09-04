@@ -22,22 +22,23 @@ export default function Signup() {
 
   const hanldeSignup = async (e: ButtonEvent) => {
     e.preventDefault()
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(emailAddress, password)
-      .then(({ user }) => {
-        user.updateProfile({
-          displayName: firstName,
-          photoURL: Math.floor(Math.random() * 5) + 1,
-        })
+    try {
+      let { user } = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(emailAddress, password)
+
+      user.updateProfile({
+        displayName: firstName,
+        photoURL: Math.floor(Math.random() * 5) + 1,
       })
-      .then(() => history.push(ROUTES.BROWSE))
-      .catch((error) => {
-        setError(error.message)
-        setFirstName("")
-        setPassword("")
-        setEmailAddress("")
-      })
+
+      history.push(ROUTES.BROWSE)
+    } catch (error) {
+      setError(error.message)
+      setFirstName("")
+      setPassword("")
+      setEmailAddress("")
+    }
   }
   return (
     <>
