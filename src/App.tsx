@@ -5,9 +5,11 @@ import { Home, Browse, Signin, Signup } from "./pages"
 import * as ROUTES from "./constants/routes"
 import { IsUserRedirect, ProtectedRoute } from "./helpers/routes"
 import { useAuthListener } from "./hooks"
+
 function App() {
   const { user } = useAuthListener()
   console.log("user :>> ", user)
+
   return (
     <Router>
       <Switch>
