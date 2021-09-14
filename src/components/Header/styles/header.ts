@@ -5,7 +5,7 @@ export const Background = styled.div`
   display: flex;
   flex-direction: column;
   background: url(${({ src }) =>
-      src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpeg"})
+      src ? `../images/misc/${src}.jpeg` : "../images/misc/home-bg.jpeg"})
     top left / cover no-repeat;
 `
 
@@ -54,4 +54,23 @@ export const ButtonLink = styled(ReactRouterLink)`
   &:hover {
     background-color: #f40612;
   }
+`
+
+export const Feature = styled(Container)`
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: initial;
+  width: 50%;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`
+
+export const Text = styled.p`
+  color: #fff;
+  font-size: 22px;
+  line-height: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
 `
