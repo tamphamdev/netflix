@@ -1,4 +1,4 @@
-import React, { Children } from "react"
+import React, { Children, useState } from "react"
 import { Link as ReactRouterLink } from "react-router-dom"
 import {
   Background,
@@ -13,12 +13,15 @@ import {
   Profile,
   FeatureCallOut,
   Link,
+  Search,
+  SearchIcon,
+  SearchInput,
 } from "./styles/header"
 
 type Props = {
   to?: string
   background?: boolean
-  children: any
+  children: React.ReactChild
   [x: string]: any
 }
 type PictureProps = {
@@ -42,18 +45,18 @@ export default function Header({
   )
 }
 
-Header.Feature = function HeaderFeature({ children, ...restProps }) {
+Header.Feature = function HeaderFeature({ children, ...restProps }: Props) {
   return <Feature {...restProps}>{children}</Feature>
 }
 
 Header.FeatureCallOut = function HeaderFeatureCallOut({
   children,
   ...restProps
-}) {
+}: Props) {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 }
 
-Header.Profile = function HeaderProfile({ children, ...restProps }) {
+Header.Profile = function HeaderProfile({ children, ...restProps }: Props) {
   return <Profile {...restProps}>{children}</Profile>
 }
 
@@ -61,11 +64,35 @@ Header.Picture = function HeaderPicture({ src, ...restProps }: PictureProps) {
   return <Picture {...restProps} src={`/images/users/${src}.png`} />
 }
 
-Header.Text = function HeaderText({ children, ...restProps }) {
+Header.Search = function HeaderSearch({
+  searchTerm,
+  setSearchTerm,
+  ...restProps
+}) {
+  const [searchActive, setSearchActive] = useState(false)
+
+  return (
+    <Search {...restProps}>
+      <SearchIcon
+        onClick={() => setSearchActive((searchActive) => !searchActive)}
+      >
+        <img src="/images/icons/search.png" alt="Search" />
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="Search files and series"
+        active={searchActive}
+      />
+    </Search>
+  )
+}
+
+Header.Text = function HeaderText({ children, ...restProps }: Props) {
   return <Text {...restProps}>{children}</Text>
 }
 
-Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }: Props) {
   return <Dropdown {...restProps}>{children}</Dropdown>
 }
 

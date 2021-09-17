@@ -10,7 +10,8 @@ type Profile = {
   photoURL: string
 }
 export function BrowseContainer({ slides }) {
-  const [profile, setProfile] = useState({})
+  const [searchTerm, setSearchTerm] = useState<string>("")
+  const [profile, setProfile] = useState<Profile>({} as Profile)
   const [loading, setLoading] = useState<boolean>(true)
   const { firebase }: any = useContext(FirebaseContext)
   const user = firebase.auth().currentUser || {}
@@ -25,7 +26,7 @@ export function BrowseContainer({ slides }) {
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
-      <Header src="joker1">
+      <Header src="joker1" dontShowOnSmallViewPort>
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
@@ -33,6 +34,10 @@ export function BrowseContainer({ slides }) {
             <Header.TextLink>Film</Header.TextLink>
           </Header.Group>
           <Header.Group>
+            <Header.Search
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+            />
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
               <Header.Dropdown>
