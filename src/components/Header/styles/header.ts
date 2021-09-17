@@ -73,6 +73,27 @@ export const Dropdown = styled.div`
   ${Group}:last-of-type ${Link} {
     cursor: pointer;
   }
+
+  ${Group} {
+    margin-bottom: 10px;
+
+    &::last-of-type {
+      margin-bottom: 0;
+    }
+    ${Link}, ${Picture} {
+      cursor: default;
+    }
+  }
+
+  button {
+    margin-right:10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 `
 
 export const Profile = styled.div`
