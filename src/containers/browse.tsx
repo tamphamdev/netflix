@@ -62,6 +62,7 @@ export function BrowseContainer({ slides }) {
             explicabo ut quidem laborum ipsam sint minima porro asperiores,
             aliquam quae quibusdam et.
           </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
     </>

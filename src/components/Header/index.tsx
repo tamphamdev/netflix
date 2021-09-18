@@ -16,6 +16,7 @@ import {
   Search,
   SearchIcon,
   SearchInput,
+  PlayButton,
 } from "./styles/header"
 
 type Props = {
@@ -98,6 +99,10 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }: Props) {
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }: Props) {
   return <Link {...restProps}>{children}</Link>
+}
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton {...restProps}>{children}</PlayButton>
 }
 
 Header.Frame = function HeaderFrame({ children, ...restProps }: Props) {
