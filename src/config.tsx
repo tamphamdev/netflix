@@ -2,7 +2,7 @@
 // Read more about the API here:  https://developers.themoviedb.org/
 
 const API_URL: string = "https://api.themoviedb.org/3/"
-const API_KEY: string | Boolean = import.meta.env.VITE_SOME_KEY || "false"
+const API_KEY: string | Boolean = "4e66dd39e667641bf810887e1c81e1e4" || "false"
 
 //Base api url
 const NETWORK: string = "213" // Netflix

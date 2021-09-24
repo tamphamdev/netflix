@@ -1,5 +1,6 @@
 import API, { Movie } from "../servies/index"
 import { useState, useEffect } from "react"
+import { isPersistedState } from "../helpers"
 
 interface IState {
   page: number
@@ -31,16 +32,37 @@ export const useHomeFetch = () => {
       setState((prev) => ({
         ...movies,
         results:
-          page > 1 ? [...prev.results, ...movies.results] : [...movies.results],
+          page > 1 ? [...prev.results, ...movies.results] : movies.results,
       }))
     } catch (error) {
       setError(true)
     }
     setLoading(false)
   }
+  // Initial and search
   useEffect(() => {
     if (!searchTerm) {
-      // const sessionState =
+      const sessionState = isPersistedState("homeState")
+
+      if (sessionState) {
+        setState(sessionState)
+        return
+      }
     }
-  })
+    setState(initialState)
+    fetchMovies(searchTerm, 1)
+  }, [searchTerm])
+
+  // Load more
+  useEffect(() => {
+    if (!isLoadingMore) return
+
+    fetchMovies(searchTerm, state.page + 1)
+    setIsLoadingMore(false)
+  }, [isLoadingMore, searchTerm, state.page])
+
+  useEffect(() => {
+    if (!searchTerm) sessionStorage.setItem("homeStat", JSON.stringify(state))
+  }, [searchTerm, state])
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore }
 }
