@@ -22,7 +22,7 @@ import {
 type Props = {
   to?: string
   background?: boolean
-  children: React.ReactChild
+  children: React.ReactChild | React.ReactChild[]
   [x: string]: any
 }
 type PictureProps = {

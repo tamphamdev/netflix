@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactChild
 }
 
-export function HeaderContainer({ children }: Props) {
+export function HeaderContainer({ children }: Props): React.ReactNode {
   return (
     <Header>
       <Header.Frame>

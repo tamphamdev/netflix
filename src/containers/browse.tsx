@@ -6,17 +6,29 @@ import { useHomeFetch } from "../hooks/useHomeFetch"
 import logo from "../logo.svg"
 import * as ROUTES from "../constants/routes"
 
-type Profile = {
+interface IProfile {
   displayName: string
   photoURL: string
 }
-export function BrowseContainer({ slides }) {
+
+interface ISlideItem {
+  title: string
+  data: Array<IItem>
+}
+
+interface IItem {
+  docId: string
+  title: string
+  description: string
+  slug: string
+  genre: string
+}
+export function BrowseContainer({ slides }): React.ReactNode {
   const [category, setCategories] = useState("series")
   const [searchTerm, setSearchTerm] = useState<string>("")
-  const [profile, setProfile] = useState<Profile>({} as Profile)
+  const [profile, setProfile] = useState<IProfile>({} as IProfile)
   const [loading, setLoading] = useState<boolean>(true)
   const [slideRows, setSlideRows] = useState([])
-  console.log("slideRows :>> ", slideRows)
   const { firebase }: any = useContext(FirebaseContext)
   const user = firebase.auth().currentUser || {}
 
@@ -40,13 +52,13 @@ export function BrowseContainer({ slides }) {
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
             <Header.TextLink
               active={category === "series" ? "true" : "false"}
-              onClick={() => setCategories("series")}
+              onClick={(): void => setCategories("series")}
             >
               Series
             </Header.TextLink>
             <Header.TextLink
               active={category === "films" ? "true" : "false"}
-              onClick={() => setCategories("films")}
+              onClick={(): void => setCategories("films")}
             >
               Film
             </Header.TextLink>
@@ -85,11 +97,11 @@ export function BrowseContainer({ slides }) {
       </Header>
 
       <Card.Group>
-        {slideRows.map((slideItem) => (
+        {slideRows.map((slideItem: ISlideItem) => (
           <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
-              {slideItem.data.map((item) => (
+              {slideItem.data.map((item: IItem) => (
                 <Card.Item key={item.docId} item={item}>
                   <Card.Image
                     src={`/images/images/${category}/${item.genre}/${item.slug}/small.jpg`}

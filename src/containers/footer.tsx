@@ -1,7 +1,7 @@
-import React from "react";
-import { Footer } from "../components";
+import React from "react"
+import { Footer } from "../components"
 
-export function FooterContainer() {
+export function FooterContainer(): React.ReactNode {
   return (
     <Footer>
       <Footer.Title>Question? Contact us.</Footer.Title>
@@ -39,5 +39,5 @@ export function FooterContainer() {
       <Footer.Break />
       <Footer.Text>Nextflix United Kingdom</Footer.Text>
     </Footer>
-  );
+  )
 }
