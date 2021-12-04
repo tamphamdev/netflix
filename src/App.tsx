@@ -14,7 +14,6 @@ function App() {
       <Switch>
         <IsUserRedirect
           user={user}
-          exact
           loggedInPath={ROUTES.BROWSE}
           path={ROUTES.SIGN_IN}
         >
@@ -22,21 +21,20 @@ function App() {
         </IsUserRedirect>
         <IsUserRedirect
           user={user}
-          exact
           loggedInPath={ROUTES.BROWSE}
           path={ROUTES.SIGN_UP}
         >
           <Signup />
         </IsUserRedirect>
 
-        <ProtectedRoute user={user} path={ROUTES.BROWSE} exact>
+        <ProtectedRoute user={user} path={ROUTES.BROWSE}>
           <Browse />
         </ProtectedRoute>
 
         <IsUserRedirect
           user={user}
           loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.BROWSE}
+          path={ROUTES.HOME}
         >
           <Home />
         </IsUserRedirect>
