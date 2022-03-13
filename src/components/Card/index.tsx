@@ -1,21 +1,20 @@
 import React, { createContext, useContext, useState } from "react"
-
 import {
   Container,
+  Content,
+  Entities,
+  Feature,
+  FeatureClose,
+  FeatureText,
+  FeatureTitle,
   Group,
-  Title,
+  Image,
+  Item,
+  Maturity,
+  Meta,
   SubTitle,
   Text,
-  Feature,
-  FeatureTitle,
-  FeatureText,
-  FeatureClose,
-  Maturity,
-  Content,
-  Meta,
-  Entities,
-  Item,
-  Image,
+  Title,
 } from "./styles/card"
 
 export const FeatureContext = createContext()
@@ -60,10 +59,15 @@ Card.Meta = function CardMeta({ children, ...restProps }) {
 Card.Feature = function CardFeature({ children, category, ...restProps }) {
   const { showFeature, itemFeature, setShowFeature } =
     useContext(FeatureContext)
+  console.log(itemFeature)
+  console.log(
+    "test",
+    `/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`
+  )
   return showFeature ? (
     <Feature
       {...restProps}
-      src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+      src={`/images/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
     >
       <Content>
         <FeatureTitle>{itemFeature.title}</FeatureTitle>
