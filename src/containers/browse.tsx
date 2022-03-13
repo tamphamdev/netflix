@@ -3,6 +3,7 @@ import { Card, Header, Loading } from "../components"
 import * as ROUTES from "../constants/routes"
 import { FirebaseContext } from "../context/firebase"
 import logo from "../logo.svg"
+import { FooterContainer } from "./footer"
 import { SelectProfileContainer } from "./profile"
 
 interface IProfile {
@@ -122,6 +123,7 @@ export function BrowseContainer({ slides }): React.ReactNode {
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
