@@ -5,8 +5,8 @@ export const Title = styled.p`
   color: #e5e5e5;
   font-weight: bold;
   margin-left: 56px;
-  margin-top: 0;
   margin-right: 56px;
+  margin-top: 0;
 `
 
 export const Container = styled.div`
@@ -20,8 +20,7 @@ export const Container = styled.div`
       margin-left: 30px;
     }
   }
-
-  &::last-of-type {
+  &:last-of-type {
     margin-bottom: 0;
   }
 `
@@ -40,13 +39,53 @@ export const Group = styled.div`
   }
 `
 
-export const SubTitle = styled.p``
+export const SubTitle = styled.p`
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 auto;
+  user-select: none;
+  display: none;
+`
 
-export const Text = styled.p``
+export const Text = styled.p`
+  margin-top: 5px;
+  font-size: 10px;
+  color: #fff;
+  margin-bottom: 0;
+  user-select: none;
+  display: none;
+  line-height: normal;
+`
+export const FeatureText = styled.p`
+  margin-left: 0;
+`
 
-export const Feature = styled.div``
+export const Feature = styled.div`
+  display: flex;
+  flex: row;
+  background: url(${({ src }) => src});
+  background-size: contain;
+  position: relative;
+  height: 360px;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-color: #000;
 
-export const FeatureText = styled.p``
+  @media (max-width: 1000px) {
+    height: auto;
+    background-size: auto;
+
+    ${Title} {
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
+    ${FeatureText} {
+      font-size: 14px;
+    }
+  }
+`
 
 export const FeatureTitle = styled(Title)`
   margin-left: 0;
@@ -80,7 +119,16 @@ export const Maturity = styled.div`
   font-size: 12px;
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
+  margin: 56px;
+  max-width: 500px;
+  line-height: normal;
+
+  @media (max-width: 1000px) {
+    margin: 30px;
+    max-width: none;
+  }
+`
 
 export const Meta = styled.div`
   display: none;

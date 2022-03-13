@@ -33,7 +33,7 @@ export default function Signup() {
       })
 
       history.push(ROUTES.BROWSE)
-    } catch (error) {
+    } catch (error:any) {
       setError(error.message)
       setFirstName("")
       setPassword("")

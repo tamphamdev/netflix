@@ -1,7 +1,7 @@
 import React from "react"
 import { Footer } from "../components"
 
-export function FooterContainer(): React.ReactNode {
+export function FooterContainer(): React.ReactElement {
   return (
     <Footer>
       <Footer.Title>Question? Contact us.</Footer.Title>

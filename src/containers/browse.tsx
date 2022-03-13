@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
-import { SelectProfileContainer } from "./profile"
-import { FirebaseContext } from "../context/firebase"
 import { Card, Header, Loading } from "../components"
-import { useHomeFetch } from "../hooks/useHomeFetch"
-import logo from "../logo.svg"
 import * as ROUTES from "../constants/routes"
+import { FirebaseContext } from "../context/firebase"
+import logo from "../logo.svg"
+import { SelectProfileContainer } from "./profile"
 
 interface IProfile {
   displayName: string
@@ -113,12 +112,13 @@ export function BrowseContainer({ slides }): React.ReactNode {
                 </Card.Item>
               ))}
             </Card.Entities>
-            {/* <Card.Feature category={category}>
-              <Player>
+            <Card.Feature category={category}>
+              <p>hello</p>
+              {/* <Player>
                 <Player.Button />
                 <Player.Video src="/videos/bunny.mp4" />
-              </Player>
-            </Card.Feature> */}
+              </Player> */}
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
