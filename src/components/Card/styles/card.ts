@@ -29,8 +29,9 @@ export const Group = styled.div`
   display: flex;
   flex-direction: ${({ flexDirection }) =>
     flexDirection === "row" ? "row" : "column"};
-  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`}
-  ${({ margin }) => margin && `margin: ${margin}`};
+  align-items: ${({ alignItems }) =>
+    alignItems && `align-items: ${alignItems}`};
+  margin: ${({ margin }) => margin && `${margin}`};
 
   > ${Container}:first-of-type {
     @media (min-width: 1100px) {
@@ -58,7 +59,15 @@ export const Text = styled.p`
   line-height: normal;
 `
 export const FeatureText = styled.p`
-  margin-left: 0;
+  font-size: 18px;
+  color: #fff;
+  font-weight: ${({ fontWeight }) =>
+    fontWeight === "bold" ? "bold" : "normal"};
+  margin: 0;
+
+  @media (max-width: 600px) {
+    line-height: 22px;
+  }
 `
 
 export const Feature = styled.div`

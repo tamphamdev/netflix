@@ -25,27 +25,23 @@ export default function selectionMap({ series, films }) {
     films: [
       {
         title: "Drama",
-        data: series.filter((item) => item.genre === "drama"),
+        data: films.filter((item) => item.genre === "drama"),
       },
       {
         title: "Thriller",
-        data: series.filter((item) => item.genre === "thriller"),
+        data: films.filter((item) => item.genre === "thriller"),
       },
       {
         title: "Children",
-        data: series.filter((item) => item.genre === "children"),
-      },
-      {
-        title: "Children",
-        data: series.filter((item) => item.genre === "children"),
+        data: films.filter((item) => item.genre === "children"),
       },
       {
         title: "Suspense",
-        data: series.filter((item) => item.genre === "suspense"),
+        data: films.filter((item) => item.genre === "suspense"),
       },
       {
         title: "Rommance",
-        data: series.filter((item) => item.genre === "rommance"),
+        data: films.filter((item) => item.genre === "rommance"),
       },
     ],
   }
