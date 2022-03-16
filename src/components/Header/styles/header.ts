@@ -1,5 +1,5 @@
 import { Link as ReactRouterLink } from "react-router-dom"
-import styled from "styled-components/macro"
+import styled from "styled-components"
 type  Image = {
   src : string,
   dontShowOnSmallViewPort?: boolean
