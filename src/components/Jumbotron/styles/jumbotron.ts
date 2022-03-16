@@ -36,7 +36,7 @@ export const Container = styled.div`
 export const Pane = styled.div`
   width: 50%;
 
-  @media (max-width: 100px) {
+  @media (max-width: 1000px) {
     width: 100%;
     padding: 0 45px;
     text-align: center;

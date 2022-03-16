@@ -150,6 +150,7 @@ export const Meta = styled.div`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  margin: auto;
 `
 
 export const Item = styled.div`
