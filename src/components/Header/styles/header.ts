@@ -45,9 +45,9 @@ export const Picture = styled.button`
 export const Link = styled.p`
   color: #fff;
   text-decoration: none;
+  cursor:pointer;
   margin-right: 30px;
   font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
-
   &:hover {
     font-weight: bold;
   }

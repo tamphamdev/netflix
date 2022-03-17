@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { FirebaseContext } from "../context/firebase"
-import { FooterContainer } from "../containers/footer"
-import { HeaderContainer } from "../containers/header"
 import { Form } from "../components"
 import * as ROUTES from "../constants/routes"
+import { FooterContainer } from "../containers/footer"
+import { HeaderContainer } from "../containers/header"
+import { FirebaseContext } from "../context/firebase"
 
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>
 type InputEvent = React.ChangeEvent<HTMLInputElement>
@@ -12,8 +12,8 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>
 export default function Signin() {
   const history = useHistory()
   const { firebase } = useContext(FirebaseContext)
-  const [emailAddress, setEmailAddress] = useState<string>("admin@gmail.com")
-  const [password, setPassword] = useState<string>("123")
+  const [emailAddress, setEmailAddress] = useState<string>("test@gmail.com")
+  const [password, setPassword] = useState<string>("123456")
   const [error, setError] = useState("")
   // check form input element are valid
   // email & password

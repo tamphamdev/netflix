@@ -45,7 +45,7 @@ describe("<Footer/>", () => {
     expect(getByText("Question? Contact us.")).toBeTruthy()
     expect(getByText("FAQ")).toBeTruthy()
     expect(getByText("Investor Relations")).toBeTruthy()
-    expect(getByText("Way to watch")).toBeTruthy()
+    expect(getByText("Ways to Watch")).toBeTruthy()
     expect(getByText("Corporate Information")).toBeTruthy()
     expect(getByText("Netflix Originals")).toBeTruthy()
     expect(container.firstChild).toMatchSnapshot()
