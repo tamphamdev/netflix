@@ -11,7 +11,7 @@ export function FooterContainer(): React.ReactElement {
           <Footer.Link href="#">FAQ</Footer.Link>
           <Footer.Link href="#">Investor Relations</Footer.Link>
           <Footer.Link href="#">Ways to Watch</Footer.Link>
-          <Footer.Link href="#">Coporate Infomation</Footer.Link>
+          <Footer.Link href="#">Corporate Information</Footer.Link>
           <Footer.Link href="#">Netflix Originals</Footer.Link>
         </Footer.Column>
 

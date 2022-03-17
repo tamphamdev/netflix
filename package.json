@@ -27,14 +27,18 @@
       "<rootDir>/jest-setup.ts"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*/js",
+      "<rootDir>/src/**/*.ts",
+      "<rootDir>/src/**/*.tsx",
       "!<rootDir>/src/main.tsx",
+      "!<rootDir>/src/App.tsx",
       "!<rootDir>/src/seed.ts",
+      "!<rootDir>/src/utils/index.ts",
+      "!<rootDir>/src/pages/index.ts",
       "!<rootDir>/src/global-styles.ts",
-      "!<rootDir>/src/components/index.js",
+      "!<rootDir>/src/components/index.ts",
       "!<rootDir>/src/firebase.prod.js",
-      "!<rootDir>/src/hooks/*.ts",
-      "!<rootDir>/src/context/*.js"
+      "!<rootDir>/src/hooks/*.tx",
+      "!<rootDir>/src/context/*.ts"
     ],
     "coverageThreshold": {
       "global": {
